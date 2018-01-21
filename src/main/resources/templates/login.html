@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+<title>Kirjakauppa - Login</title>
+</head>
+<body>
+	<h1 style="text-align: center">Log in</h1>
+	<div style="text-align: center; color: green; font-weight: bold;" th:if="${param.logout}">Logged out succesfully.</div>
+	<form th:action="@{/login}" method="post">
+		<table class="table table-bordered" style="width: 280px; margin: auto">
+			<tr>
+				<td style="text-align: center"><label>User Name:<input class="form-control"
+						type="text" name="username" />
+				</label></td>
+			</tr>
+			<tr>
+				<td style="text-align: center"><label>Password: <input class="form-control"
+						type="password" name="password" /></label></td>
+			</tr>
+			<tr>
+				<td style="text-align: center">
+					<div style="text-align: center; color: red; font-weight: bold;" th:if="${param.error}">Invalid username or password.</div>
+					<br />
+					<button type="submit" class="btn btn-success">Sign in</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

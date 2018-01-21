@@ -50,6 +50,16 @@ public class BookController {
 		return "redirect:../booklist";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Model model) {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model) {
+		return "login";
+	}
+	
 	@Bean
 	public CommandLineRunner addData(BookRepository repository) {
 		return (args) -> {
