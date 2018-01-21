@@ -63,8 +63,8 @@ public class BookController {
 	@Bean
 	public CommandLineRunner addData(BookRepository repository) {
 		return (args) -> {
-			repository.save(new Book("Title", "Author", 2010, "isbn", 0));
-			repository.save(new Book("Title", "Author", 2010, "isbn", 0));
+			repository.save(new Book("A farewell to arms", "Ernest Hemingway", 1929, "1232323-21", 10));
+			repository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 20));
 			repository.save(new Book("Title", "Author", 2010, "isbn", 0));
 			repository.save(new Book("Title", "Author", 2010, "isbn", 0));
 		};

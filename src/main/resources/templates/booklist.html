@@ -11,7 +11,7 @@
 	<div style="float: right; margin-right: 15px; margin-top: 5px;">
 		<p th:inline="text">Logged: [[${#httpServletRequest.remoteUser}]]</p>
 		<form th:action="@{/logout}" method="post">
-			<button type="submit" class="btn btn-danger">Sign out</button>
+			<button type="submit" class="btn btn-secondary">Sign out</button>
 		</form>
 	</div>
 	
@@ -23,7 +23,7 @@
 			<th>ISBN</th>
 			<th>Year</th>
 			<th>Price</th>
-			<th sec:authorize="hasRole('ADMIN')"></th>
+			<th sec:authorize="hasAuthority('ADMIN')"></th>
 		</tr>
 		<tr th:each="book : ${books}">
 			<td th:text="${book.author}" />
@@ -31,13 +31,14 @@
 			<td th:text="${book.isbn}" />
 			<td th:text="${book.year}" />
 			<td th:text="${book.price}" />
-			<td sec:authorize="hasRole('ADMIN')"><a class="btn btn-danger"
+			<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger"
 				th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
 		</tr>
 	</table>
 	<div style="width: 80%; margin: auto">
 		<form method="get" action="/addbook">
-			<button class="btn btn-success" type="submit">Add book</button>
+			<br />
+			<button class="btn btn-primary" type="submit">Add book</button>
 		</form>
 	</div>
 </body>
